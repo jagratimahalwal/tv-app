@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
-        <div>
+        <div className="mb-40">
           <Header />
           <Switch>
             <Route exact path="/tv-app" component={HomePage}></Route>

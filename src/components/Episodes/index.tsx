@@ -20,9 +20,9 @@ const EpisodesList: React.FC<EpisodeProp> = ({ seasonId, hideEpisodes }) => {
     <div className="m-4">
       <button
         onClick={() => hideEpisodes()}
-        className="rounded px-4 py-2  font-4xl"
+        className="bg-white rounded px-4 py-2 text-black font-xl"
       >
-        ⬅ Back
+        Back to Seasons
       </button>
       {data &&
         data.map((episode, i) => (
