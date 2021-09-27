@@ -35,8 +35,8 @@ const EpisodesList: React.FC<EpisodeProp> = ({ seasonId, hideEpisodes }) => {
               />
             )}
             <div className="ml-4 flex flex-col">
-              <span>Episode {episode.number}</span>
-              <span>{episode.name}</span>
+              <h2>Episode {episode.number}</h2>
+              <span className="font-semibold	">{episode.name}</span>
               <p
                 dangerouslySetInnerHTML={{ __html: episode.summary }}
                 className="mt-2"
