@@ -15,6 +15,7 @@ function App() {
         <div>
           <Header />
           <Switch>
+            <Route exact path="/tv-app" component={HomePage}></Route>
             <Route exact path="/" component={HomePage}></Route>
             <Route exact path="/show/:showId" component={ShowDetails}></Route>
             <Route exact path="/serach/:name" component={SearchResults}></Route>

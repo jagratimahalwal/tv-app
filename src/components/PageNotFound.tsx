@@ -9,13 +9,13 @@ const PageNotFound: React.FC<{}> = () => {
       <img
         src={tvIcon}
         className="h-48 my-4 cursor-pointer"
-        onClick={() => history.push("/")}
+        onClick={() => history.push("/tv-app")}
         alt="tv-icon"
       />
       <span className="text-6xl">😨</span>
       <h1>Sorry, this page doesn't exist</h1>
       <h3 className="cursor-pointer">
-        <Link to="/">Click here to go to the Homa page</Link>
+        <Link to="/">Click here to go to the Home page</Link>
       </h3>
     </main>
   );

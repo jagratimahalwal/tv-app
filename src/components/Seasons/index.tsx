@@ -17,12 +17,12 @@ const Seasons: React.FC<SeasonProp> = ({ showId }) => {
   }, [showId]);
 
   return (
-    <div className="mx-6">
+    <div className="grid grid-cols-3 mx-6">
       {seasonData &&
         seasonData.map((season, i) => (
-          <div key={i} className="flex flex-row my-6">
+          <div key={i} className=" my-6">
             <img src={season.image?.medium} alt="season" className="rounded" />
-            <div className="flex flex-col ml-4">
+            <div className="flex flex-col ">
               <h2>Season {season.number}</h2>
               <span>Episodes {season.episodeOrder}</span>
               <span>{season.premiereDate}</span>

@@ -13,7 +13,7 @@ const Header: React.FC<{}> = () => {
         className="h-8 cursor-pointer"
         alt="tv-icon"
         onClick={() => {
-          history.push("/");
+          history.push("/tv-app");
         }}
       />
       <SearchBox />

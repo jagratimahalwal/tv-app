@@ -41,7 +41,7 @@ const SearchResults: React.FC<{}> = () => {
         {searchResults && <div className="text-white">{name} not found!!</div>}
       </div>
       <button
-        onClick={() => history.push("/")}
+        onClick={() => history.push("/tv-app")}
         className="my-4 bg-white rounded p-4 text-black flex flex-row justiify-between items-center"
       >
         <img src={house} alt={"home"} className="mr-2" />
