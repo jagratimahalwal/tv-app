@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Seasons from "../Seasons";
 import { ShowObject } from "../../models/showModel";
 import { ImageObj } from "../../models/searchModel";
 
@@ -18,7 +19,6 @@ const ShowDetails: React.FC<{}> = () => {
     fetch(`https://api.tvmaze.com/shows/${showId}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setShowDetails(data);
         setLoading(false);
       })
@@ -76,6 +76,7 @@ const ShowDetails: React.FC<{}> = () => {
               className="mt-4"
             ></p>
           </div>
+          {showId && <Seasons showId={showId} />}
         </div>
       )}
     </div>

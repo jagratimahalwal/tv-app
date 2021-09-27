@@ -31,7 +31,7 @@ const SearchBox: React.FC<{}> = () => {
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setSearch(e.target.value)
           }
-          className=" px-2 text-base focus:borderColor 	"
+          className=" px-2 text-base focus:outline-none	 	"
         ></input>
         <div className="text-xl	flex flex-row justify-between items-center">
           {search.length > 1 && (
