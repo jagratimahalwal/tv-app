@@ -7,7 +7,6 @@ const Header = lazy(() => import("./components/Header"));
 const ShowDetails = lazy(() => import("./components/ShowDetails"));
 const SearchResults = lazy(() => import("./components/SearchResults"));
 const PageNotFound = lazy(() => import("./components/PageNotFound"));
-const EpisodesList = lazy(() => import("./components/Episodes"));
 
 function App() {
   return (
@@ -20,11 +19,6 @@ function App() {
             <Route exact path="/" component={HomePage}></Route>
             <Route exact path="/show/:showId" component={ShowDetails}></Route>
             <Route exact path="/serach/:name" component={SearchResults}></Route>
-            <Route
-              exact
-              path="/season/:seasonId"
-              component={EpisodesList}
-            ></Route>
             <Route path="*" component={PageNotFound}></Route>
           </Switch>
         </div>
