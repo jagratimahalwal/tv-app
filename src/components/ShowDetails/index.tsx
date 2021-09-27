@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Seasons from "../Seasons";
+import EpisodesList from "../Episodes";
 import { ShowObject } from "../../models/showModel";
 import { ImageObj } from "../../models/searchModel";
 
@@ -14,6 +15,9 @@ const ShowDetails: React.FC<{}> = () => {
   const [image, setImage] = useState<ImageObj[]>();
   const [isError, setError] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [isEpisodeList, setEpisodeList] = useState<boolean>(false);
+  const [selectedSeason, setSelectedSeason] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`https://api.tvmaze.com/shows/${showId}`)
@@ -36,8 +40,19 @@ const ShowDetails: React.FC<{}> = () => {
       });
   }, [showId]);
 
+  const showEpisodes = (id: string) => {
+    setSelectedSeason(id);
+    setEpisodeList(true);
+  };
+
   return (
     <div>
+      <button
+        onClick={() => history.goBack()}
+        className="bg-white rounded px-4 py-2 text-black font-xl m-6"
+      >
+        Back
+      </button>
       {isError && (
         <div data-testid="error">
           Something Went wrong, please try again later
@@ -76,7 +91,21 @@ const ShowDetails: React.FC<{}> = () => {
               className="mt-4"
             ></p>
           </div>
-          {showId && <Seasons showId={showId} />}
+          {showId && !isEpisodeList && (
+            <Seasons
+              showId={showId}
+              showEpisodes={(id: string) => showEpisodes(id)}
+            />
+          )}
+          {isEpisodeList && (
+            <EpisodesList
+              seasonId={selectedSeason}
+              hideEpisodes={() => {
+                setEpisodeList(false);
+                setSelectedSeason("");
+              }}
+            />
+          )}
         </div>
       )}
     </div>

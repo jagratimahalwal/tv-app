@@ -1,7 +1,7 @@
 import React from "react";
 
 interface RowWrapperProps {
-  children: any;
+  children: React.ReactNode;
   className?: string;
   title?: string;
 }

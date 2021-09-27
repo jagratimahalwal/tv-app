@@ -3,9 +3,10 @@ import { SeasonObj } from "../../models/seasons";
 
 interface SeasonProp {
   showId: string;
+  showEpisodes: any;
 }
 
-const Seasons: React.FC<SeasonProp> = ({ showId }) => {
+const Seasons: React.FC<SeasonProp> = ({ showId, showEpisodes }) => {
   const [seasonData, setSeasonsData] = useState<SeasonObj[]>();
 
   useEffect(() => {
@@ -20,7 +21,13 @@ const Seasons: React.FC<SeasonProp> = ({ showId }) => {
     <div className="grid grid-cols-3 mx-6">
       {seasonData &&
         seasonData.map((season, i) => (
-          <div key={i} className=" my-6">
+          <div
+            key={i}
+            className=" cursor-pointer my-6"
+            onClick={() => {
+              showEpisodes(season.id);
+            }}
+          >
             <img src={season.image?.medium} alt="season" className="rounded" />
             <div className="flex flex-col ">
               <h2>Season {season.number}</h2>
